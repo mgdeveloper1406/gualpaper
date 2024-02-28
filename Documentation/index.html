@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wallpee - Wallpaper App</title>
+    <link rel="icon" href="assets/images/favicon.png" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/poppins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/script.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="./assets/images/logo.png" class="img-fluid" width="110" />
+      </div>
+      <div class="sidebar-nav">
+        <ul>
+          <li><a class="active" href="#introduction">Introduction</a></li>
+          <li><a href="#requirements">Requirements</a></li>
+          <li><a href="#configuration">Configuration</a></li>
+          <li><a href="#setup">Setup</a></li>
+          <li><a href="#customize">Customize</a></li>
+          <li><a href="#backend">Backend</a></li>
+          <li><a href="#appscreens">App Screens</a></li>
+          <li><a href="#adminPanel">Admin panel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="markdown-section">
+        <section id="introduction" class="page-section pt-4">
+          <blockquote class="mt-0">
+            <h4>Introduction</h4>
+            <p>A React Native Wallpaper App with complete backend integration.</p>
+          </blockquote>
+          <p>App is built using Redux and is performance optimised which helps you to develop world-class application experiences on native platforms. This gives your app a consistent look and feel with the rest of the platform ecosystem, and keeps the quality bar high.</p>
+          <ul>
+            <li>React Version: 18.2.0</li>
+            <li>React Native Version: 0.71.4</li>
+            <li>React Navigation Version: 6.1.6</li>
+            <li>Redux Version: 4.2.1</li>
+          </ul>
+          <p>The app includes all essential screen along with many customisable options through a configuration file.</p>
+          <p>In this documentation we will explore everything in this app so you can get started with the app.</p>
+          <p>Let's get started.</p>
+        </section>
+        <section id="requirements" class="page-section">
+          <blockquote>
+            <h4>Requirements</h4>
+          </blockquote>
+          <div class="fs-6 fw-bold mb-2">NodeJS</div>
+          <p>Make sure you have a recent version (14 or later) of <a href="https://nodejs.org/en/" target="_blank">Node</a> installed globally.</p>
+          <p>We recommend installing Node and Watchman using <a href="https://brew.sh/" target="_blank">Homebrew.</a> Run the following commands in a Terminal after installing Homebrew:</p>
+          <p>brew install node<br/>brew install watchman</p>
+          <p>If you have already installed Node on your system, make sure it is Node 14 or newer.</p>
+          <br />
+
+          <h5 class="fw-normal mb-2">For IOS View</h5>
+          <div class="fs-6 fw-bold mb-2">Ruby</div>
+          <p><a href="https://www.ruby-lang.org/en/" target="_blank">Ruby</a> is a general-purpose programming language. React Native uses in some scripts related to the iOS dependency management. As every programming language, there are different versions of Ruby that have been developed during the years.</p>
+          <p>React Native uses a .ruby-version file to make sure that your version of Ruby is aligned with what is needed. Currently, macOS 13.2 is shipped with Ruby 2.6.10, which is not what is required by this version of React Native (2.7.6). Our suggestion is to install a Ruby version manager and to install the proper version of Ruby in your system.</p>
+          <p>Some common Ruby version manager are:</p>
+          <p>
+            <a href="https://github.com/rbenv/rbenv" target="_blank">rbenv</a><br />
+            <a href="https://rvm.io/" target="_blank">RVM</a><br />
+            <a href="https://github.com/postmodern/chruby" target="_blank">chruby</a><br />
+            <a href="https://github.com/asdf-vm" target="_blank">asdf-vm</a> with the <a href="https://github.com/asdf-vm/asdf-ruby" target="_blank">asdf-ruby</a> plugin
+          </p>
+          <p>To check what is your current version of Ruby, you can run this command:<br />ruby --version</p>
+          <p>This project needs 2.7.6 ruby version.</p>
+
+          <div class="fs-6 fw-bold mb-2">Xcode & CocoaPods</div>
+          <p>The easiest way to install Xcode is via the <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Mac App Store.</a> Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.</p>
+          <p>If you have already installed Xcode on your system, make sure it is version 10 or newer.</p>
+          <div class="fs-6 fw-normal mb-2">Command Line Tools</div>
+          <p>You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.</p>
+          <i class="fw-500">Installing an iOS Simulator in Xcode</i>
+          <p>To install a simulator, open <b>Xcode > Preferences…</b> and select the <b>Components</b> tab. Select a simulator with the corresponding version of iOS you wish to use.</p>
+          <i class="fw-500">CocoaPods</i>
+          <p>
+            <a href="https://cocoapods.org/" target="_blank">CocoaPods</a> is one of the dependency management system available for iOS. It is built with Ruby and you can install it using the version of Ruby you configured with in the previous steps.
+          </p>
+
+          <br />
+          <h5 class="fw-normal mb-2">For Android View</h5>
+          <div class="fs-6 fw-bold mb-2">Java Development Kit</div>
+          <p>We recommend installing the OpenJDK distribution called Azul Zulu using <a href="https://brew.sh/" target="_blank">Homebrew.</a> Run the following commands in a Terminal after installing Homebrew:</p>
+          <p>brew tap homebrew/cask-versions<br />
+          brew install --cask zulu11</p>
+          <p>The Zulu OpenJDK distribution offers JDKs for both Intel and M1 Macs. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.</p>
+          <p class="mb-4">If you have already installed JDK on your system, we recommend JDK 11. You may encounter problems using higher JDK versions.</p>
+          <div class="fs-6 fw-bold mb-2">Android development environment</div>
+          <p>please make sure to carefully follow the next few steps.</p>
+
+          <i class="fw-500">1. Install Android Studio</i>
+          <p class="mt-2">Download and <a href="https://developer.android.com/studio" target="_blank">install Android Studio.</a> While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:</p>
+          <ul>
+            <li>Android SDK</li>
+            <li>Android SDK Platform</li>
+            <li>Android Virtual Device</li>
+          </ul>
+          <p>Then, click "Next" to install all of these components.</p>
+          <p>Once setup has finalized and you're presented with the Welcome screen, proceed to the next step.</p>
+
+          <i class="fw-500">2. Install the Android SDK</i>
+          <p class="mt-2">Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the Android 13 (Tiramisu) SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.<br />To do that, open Android Studio, click on "More Actions" button and select "SDK Manager".</p>
+          <img src="./assets/images/android-wlc.png" class="img-fluid"/>
+          <p>Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the Android 13 (Tiramisu) entry, then make sure the following items are checked:</p>
+          <ul>
+            <li>Android SDK Platform 33</li>
+            <li>Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image or (for Apple M1 Silicon) Google APIs ARM 64 v8a System Image</li>
+          </ul>
+          <p>Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that 33.0.0 is selected.</p>
+          <p>Finally, click "Apply" to download and install the Android SDK and related build tools.</p>
+
+          <i class="fw-500">3. Configure the ANDROID_HOME environment variable</i>
+          <p class="mt-2">The React Native tools require some environment variables to be set up in order to build apps with native code.</p>
+          <p>Add the following lines to your ~/.zprofile or ~/.zshrc (if you are using bash, then ~/.bash_profile or ~/.bashrc) config file:
+
+          </p>
+          <p>
+            export ANDROID_HOME=$HOME/Library/Android/sdk<br />
+            export PATH=$PATH:$ANDROID_HOME/emulator<br />
+            export PATH=$PATH:$ANDROID_HOME/platform-tools
+          </p>
+          <p>Run source ~/.zprofile (or source ~/.bash_profile for bash) to load the config into your current shell. Verify that ANDROID_HOME has been set by running echo $ANDROID_HOME and the appropriate directories have been added to your path by running echo $PATH.</p>
+          <div class="fs-6 fw-bold mt-3 mb-2">React Native Command Line Interface</div>
+          <p>React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using npx, which ships with Node.js. With npx react-native <command>, the current stable version of the CLI will be downloaded and executed at the time the command is run.</p>
+        </section>
+        <section id="configuration" class="page-section">
+          <blockquote>
+            <h4>Configuration</h4>
+          </blockquote>
+          <p>Open config.js file in root level</p>
+          <ul class="mt-ul-list">
+            <li>Configure api url - Replace <span class="fw-500">apiUrl</span> with the hosting url on which your GraphQL API is running</li>
+          </ul>
+        </section>
+        <section id="setup" class="page-section">
+          <blockquote>
+            <h4>Setup</h4>
+          </blockquote>
+          <p>Run the following commands on your terminal to setup wallpee React Native App on your system.</p>
+          <p>
+            cd wallpee<br />
+            npm install<br />
+            cd ios <br />
+            npx pod-install
+          </p>
+          <i>Run on IOS</i>
+          <ul class="mt-2 mt-ul-list">
+            <li>Opt #1:
+              <ul>
+                <li>Open the project in Xcode from ios/Wallpee.xcworkspace</li>
+                <li>Click run button to simulate</li>
+              </ul>
+            </li>
+            <li>Opt #2:
+              <ul><li>Run npx react-native run-ios in your terminal</li></ul>
+            </li>
+          </ul>
+          <i>Run on Android</i>
+          <ul class="mt-2">
+            <li>Make sure you have an Android emulator installed and running</li>
+            <li>Run npx react-native run-android in your terminal</li>
+          </ul>
+          <i class="fw-500">Running on a device</i>
+          <p>If you want to run the app on an actual physical device, please follow the instructions here.<br />
+            <a href="https://facebook.github.io/react-native/docs/running-on-device" target="_blank">https://facebook.github.io/react-native/docs/running-on-device</a>
+          </p>
+        </section>
+        <section id="customize" class="page-section">
+          <blockquote>
+            <h4>Customize</h4>
+          </blockquote>
+          <p>Customizing the App will be a cakewalk for you. That is due to the fact, we provide you well prepared code. This makes it quite simple to be able to dig through the code and hence without problems customizable.</p>
+          <div class="fs-6 fw-bold mb-2">Change app logo</div>
+          <p>In order to change logo display in screen header:</p>
+          <ul>
+            <li>Include image of your logo named as logo.png</li>
+            <li>Replace it under assets/images/</li>
+          </ul>
+
+          <div class="fs-6 fw-bold mb-2">Change splash image</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>You should upload ios splash images to ios/Wallpee/Images.xcassets/splash.imageset/ with respective image name and size</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>You should upload android splash images to android/app/src/main/res/drawable_folder_name(drawable-hdpi, drawable-mdpi) with respective image name and size</p>
+
+          <div class="fs-6 fw-bold mt-3 mb-2">Change app icon</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>You should upload ios icons to ios/Wallpee/Images.xcassets/AppIcon.appiconset/ with respective icon name and size</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>You should upload android icon images to android/app/src/main/res/mipmap_folder_name(mipmap-hdpi, mipmap-mdpi) with respective icon name and size</p>
+
+          <div class="fs-6 fw-bold mb-1 mt-3">Change app name</div>
+          <div class="fs-6 mb-1">For IOS</div>
+          <p>In order to change the app name you need to modify the ios/Wallpee/info.plist and change <span class="fw-500">CFBundleDisplayName</span> key property value.</p>
+          <div class="fs-6 mb-1">For Android</div>
+          <p>In order to change the app name you need to modify the app.json and change the <span class="fw-500">name</span> and <span class="fw-500">displayName</span> properties and also the <span class="fw-500">app_name</span> property from android/app/src/main/res/values/strings.xml.</p>
+
+          <div class="fs-6 fw-bold mt-3 mb-1">Change theme color</div>
+          <p>You can edit the app theme colors by modifying the src/constants/colors.js file.</p>
+        </section>
+        <section id="backend" class="page-section">
+          <blockquote>
+            <h4>Backend</h4>
+          </blockquote>
+          <p>As part of the architecture we have included the use of GraphQL as a complement for backend operations.</p>
+          <p>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.</p>
+        </section>
+        <section id="appscreens" class="page-section pt-4">
+          <blockquote class="mt-0">
+            <h4>App Screens</h4>
+          </blockquote>
+          <ol>
+            <li class="fs-6 fw-bold">Home Screen</li>
+            <p>At the top of the home screen, The app <span class="fw-500">Logo</span> displays, along with <span class="fw-500">Bar</span> icon at left and <span class="fw-500">Search</span> icon at the very right.
+              <br />By clicking <span class="fw-500">bar</span> icon, user can open side menu from which user can view their favourite wallpapers and can share the app.
+              <br />By clicking <span class="fw-500">search</span> icon, user can open search screens.
+              <br />The <span class="fw-500">Search</span> facility will allow you to search the wallpapers.
+              <br />Next, you have <span class="fw-500"> recent, trending, featured, and category</span> tabs.
+              <br /><span class="fw-500">Recent tab</span> displays all the recent wallpapers.
+              <br /><span class="fw-500">Trending tab</span> displays wallpapers with maximum downloads.
+              <br /><span class="fw-500">Featured tab</span> displays featured wallpapers which is set from admin panel wallpaper section.
+              <br /><span class="fw-500">Category tab</span> display all categories of wallpapers.
+              <br />Next, you have the <span class="fw-500">wallpapers section,</span> where wallpapers will display according to selected tab. here wallpaper will <span class="fw-500">dynamically loads on scroll(pagination)</span>. we also added  <span class="fw-500">pull to refresh wallpaper</span> functionality over here.
+             </p>
+            <img src="./assets/images/home.png" class="img-fluid app-img" alt="Home" />
+
+            <li class="fs-6 fw-bold">Category Screen</li>
+            <p>Here you will see the all categories.
+            <br />By clicking on particular category you can view all of its <span class="fw-500">wallpapers</span>.
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/category.png" class="img-fluid app-img" alt="Categories" />
+              <img src="./assets/images/category-wallpaper.png" class="img-fluid app-img ms-5" alt="Categories" />
+            </div>
+
+            <li class="fs-6 fw-bold">Wallpaper detail Screen</li>
+            <p>
+              Wallpaper detail screen display information about the wallpaper including the photo, name, likes, downloads and published date.
+              <br />There are two buttons at the top right section:
+              <ul class="mt-list">
+                <li>Share: by clicking on it you can <span class="fw-500">share</span> wallpaper</li>
+                <li>Favourite: by clicking on it you can add wallpaper to your <span class="fw-500">favourite</span> list</li>
+              </ul>
+              <br />After wallpaper image there is two buttons:
+              <ul class="mt-list">
+                <li>Like: by clicking on it you can <span class="fw-500">like</span> wallpaper</li>
+                <li>Download: by clicking on it you can <span class="fw-500">download</span> wallpaper. which will store into your image gallery.</li>
+              </ul>
+              <br />There is also <span class="fw-500">set wallpaper</span></set> button on <span class="fw-500">android</span>. by clicking on it you can set wallpaper of your <span class="fw-500">device home screen</span>.
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/wallpaper-detail.png" class="img-fluid app-img ms-5" alt="Wallpaper detail" />
+              <img src="./assets/images/share.png" class="img-fluid app-img ms-5" alt="Wallpaper detail" />
+            </div>
+
+            <li class="fs-6 fw-bold">Search Screen</li>
+            <p>From this screen, you can search <span class="fw-500">Wallpapers</span> by their name and category name.
+            <br />By heating the close icon, it will clear the search text.
+            <br />The next screen has a clear view of what the search page looks like.
+            We have a <span class="fw-500">Lazy Load</span> facility here, as you scroll down, wallpapers will load into the screen automatically.
+            </p>
+            <div class="d-flex">
+              <img src="./assets/images/search.png" class="img-fluid app-img" alt="Search" />
+              <img src="./assets/images/search-wallpaper.png" class="img-fluid app-img ms-5" alt="Search" />
+            </div>
+
+            <li class="fs-6 fw-bold">Favourites Screen</li>
+            <p>
+              As we mentioned earlier, you can open it by clicking <span class="fw-500">favourites</span> from the side menu.
+              <br />This screen will displays all your favourite wallpapers.</p>
+            <img src="./assets/images/favourites.png" class="img-fluid app-img" alt="Cart" />
+
+            <li class="fs-6 fw-bold">Menu Screen</li>
+            <p>
+              There are three options in menu screen:
+              <ul class="mt-list">
+                <li>Home: by clicking on it you can navigate to <span class="fw-500">home screen</span>.</li>
+                <li>Favourites: by clicking on it you can navigate to <span class="fw-500">favourite screen</span>.</li>
+                <li>Share: by clicking on it you can <span class="fw-500">share wallpaper app</span>.</li>
+              </ul>
+            </p>
+            <img src="./assets/images/side-menu.png" class="img-fluid app-img" alt="menu" />
+          </ol>
+        </section>
+        <section id="adminPanel" class="page-section">
+          <blockquote>
+            <h4>Admin panel</h4>
+          </blockquote>
+          <p>Responsive Web Admin - wallpaper management system built using react. The system has the ability to manage the wallpaper and its category.</p>
+
+          <div class="fs-6 fw-bold mb-2">Features</div>
+          <ul>
+            <li>Manage Categories</li>
+            <li>Manage Wallpapers</li>
+            <li>Users</li>
+          </ul>
+
+          <div class="fs-6 fw-bold mb-2">Configuration</div>
+          <p>Open .env file in root level</p>
+          <p>Configure api url:</p>
+          <ul>
+            <li>Replace <span class="fw-500">REACT_APP_WEB_API_HOST</span> with the hosting url on which your GraphQL API is running</li>
+          </ul>
+          <p>Wallpaper-admin uses <b>Amazon S3</b> for files upload</p>
+          <div class="">
+            <p>Configure Amazon S3:</p>
+              <ul>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_ACCESS_KEY</span> with your Amazon S3 access key id</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_SECRET_KEY</span> with your Amazon S3 secret access key</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_REGION</span> with your Amazon S3 region</li>
+                <li>Replace <span class="fw-500">REACT_APP_AWS_BUCKET</span> with your Amazon S3 bucket name</li>
+              </ul>
+            </p>
+          </div>
+
+          <div class="fs-6 fw-bold mb-2">Setup</div>
+          <p>Run the following commands on your terminal to setup Wallpaper Admin Panel on your system.</p>
+          <p class="mb-3">cd wallpaper-admin<br />npm install<br /><span class="fw-500">Run admin panel - </span>npm start</p>
+
+          <div class="fs-6 fw-bold mb-2">Admin Panel Access</div>
+          <p class="mb-3">Email: admin@admin.com<br />Password: admin123</p> 
+
+          <div class="fs-6 fw-bold mb-2">Admin Panel Pages</div>
+          <ol type="number">
+            <li class="fs-14 fw-500">Login</li>
+            <p>From this page admin will log into the web and can manage wallpapers and categories.</p>
+            <img src="./assets/images/login.png" class="img-fluid screen-img" alt="login" />
+
+            <li class="fs-14 fw-500">Wallpapers</li>
+            <p>
+              This page will allow admin to view all <span class="fw-500">wallpapers</span> of the app.
+              <br />Admin can <span class="fw-500">add</span> new wallpaper, <span class="fw-500">edit</span> particular wallpaper information and <span class="fw-500">remove</span> wallpapers.
+              <br />Admin can also <span class="fw-500">search</span> the wallpapers by their name, category.
+            </p>
+            <img src="./assets/images/wallpapers.png" class="img-fluid screen-img" alt="Wallpapers" />
+
+            <li class="fs-14 fw-500">Categories</li>
+            <p>
+              <span class="fw-500">All Wallpaper Categories</span> are listed here. Admin can manage it with full control.
+              <br />Admin can add/edit category from this section.
+              <br />There is a <span class="fw-500">rule to remove a Category.</span> It will not be deleted <span class="fw-500">if any wallpaper is assigned to it.</span> So, in such cases, remove the related wallpapers first and then remove the category.
+              <br />Admin can search the categories by their <span class="fw-500">name.</span>
+            </p>
+            <img src="./assets/images/categories.png" class="img-fluid screen-img" alt="Categories" />
+
+            <li class="fs-14 fw-500">Users</li>
+            <p>
+              <span class="fw-500">All users</span> are listed here. Admin can view user downloads and likes count from this section.
+            </p>
+            <img src="./assets/images/users.png" class="img-fluid screen-img" alt="Users" />
+          </ol>
+        </section>
+        <section id="support" class="page-section pt-0">
+          <blockquote>
+            <h4>Support</h4>
+          </blockquote>
+          <p>If you have any additional questions, which aren't covered in our documentation, feel free to reach us here:
+              <br /><a href="https://mahardhi.freshdesk.com" target="_blank">https://mahardhi.freshdesk.com</a>
+          </p>
+        </section>
+      </div>
+		</div>
+    <a href="javascript:void(0);" class="scrollToTop"><img src="./assets/images/angle-up.png" /></a>
+  </body>
+</html>
